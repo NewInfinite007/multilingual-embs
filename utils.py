@@ -26,13 +26,13 @@ def tokenize(sentence):
 def fetch_vectors(lang, sentence):
 	tokens = tokenize(sentence)
 	print(tokens)
-	emb, id2word, word2id = load_vec(os.path.join('./MUSE/dumped/debug/2np8atq2uj/', 'vectors-' + lang + '.txt'))
+	emb, id2word, word2id = load_vec(os.path.join('./multilingual-embs/data/', 'vectors-' + lang + '.txt'))
 	emb_vec = [emb[word2id.get(i, word2id['unknown'])] for i in tokens]
 	return emb_vec
 
 def fetch_vectors_v1(lang, sentence):
 	tokens = tokenize(sentence)
-	emb, id2word, word2id = load_vec(os.path.join('./MUSE/dumped/debug/2np8atq2uj/', 'vectors-' + lang + '.txt'))
+	emb, id2word, word2id = load_vec(os.path.join('./multilingual-embs/data/', 'vectors-' + lang + '.txt'))
 	emb_vec = [emb[word2id.get(i, 'unknown')] for i in tokens]
 	return np.mean(emb_vec, axis=0)
 
