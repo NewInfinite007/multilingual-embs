@@ -39,10 +39,3 @@ def fetch_vectors_v1(lang, sentence):
 def similarity(v1, v2):
 	return np.dot(v1, v2)/(np.linalg.norm(v1)*np.linalg.norm(v2))
 
-"""
-def evaluate(file_path):
-	import pandas
-	eval_f = pandas.read_excel(file_path)
-
-	pass
-"""
