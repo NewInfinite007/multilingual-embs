@@ -8,7 +8,9 @@ CORS(app)
 
 @app.route('/getEmbeddings',methods=['POST'])
 def getEmbeddings():
-	data = json.loads(request.data)
+	data = request.data
+	if isinstance(data, str):
+		data = json.loads(request.data)
 	ret_obj = []
 	for idx, d in enumerate(data):
 		sent_key = 'S' + str(idx+1)
